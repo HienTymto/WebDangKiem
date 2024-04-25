@@ -4,19 +4,20 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('../views/LoginView.vue')
+      path: '/',
+      component: () => import('../views/HomeView.vue'),
+      children: [
+        { path: '/login', component: () => import('../views/LoginView.vue') },
+        { path: '/register', component: () => import('../views/RegisterView.vue') },
+        { path: '/dashboard', component: () => import('../views/DashboardView.vue') }
+      ]
     },
     {
-      path: '/register',
-      name: 'register',
-      component: () => import('../views/RegisterView.vue')
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: () => import('../views/DashboardView.vue')
+      path: '/admin',
+      component: () => import('../views/admin/AdminView.vue'),
+      children: [
+        { path: '/admin/listbooking', component: () => import('../views/admin/ListBooking.vue') }
+      ]
     }
   ]
 })

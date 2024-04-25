@@ -34,8 +34,18 @@ import { RouterLink } from 'vue-router'
           <a class="nav-link active fs-6 text-uppercase text-white" aria-current="page" href="#"
             >thông báo</a
           >
-          <RouterLink to="/login" class="nav-link active fs-6 text-uppercase text-white"
+          <RouterLink
+            v-if="!isLoggedIn"
+            to="/login"
+            class="nav-link active fs-6 text-uppercase text-white"
             >Tài khoản</RouterLink
+          >
+          <RouterLink
+            v-if="isLoggedIn"
+            to="/dashboard"
+            class="nav-link active fs-6 text-uppercase text-white"
+            >Dashboard</RouterLink
+          >
           >
           <a class="nav-link active fs-6 text-uppercase text-white" aria-current="page" href="#"
             >liên hệ hợp tác</a

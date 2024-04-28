@@ -16,7 +16,8 @@ const router = createRouter({
       path: '/admin',
       component: () => import('../views/admin/AdminView.vue'),
       children: [
-        { path: '/admin/listbooking', component: () => import('../views/admin/ListBooking.vue') }
+        { path: '/admin/listbooking', component: () => import('../views/admin/ListBooking.vue') },
+        { path: '/admin/listaccount', component: () => import('../views/admin/ListAccount.vue') }
       ]
     }
   ]

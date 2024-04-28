@@ -11,7 +11,7 @@
           </SplitterPanel>
           <SplitterPanel :size="85">
             <Splitter>
-              <SplitterPanel class="d-flex align-items-center justify-content-center" :size="80">
+              <SplitterPanel :size="80">
                 <RouterView />
               </SplitterPanel>
             </Splitter>
@@ -23,12 +23,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 import PanelMenu from '@/components/admin/PanelMenu.vue'
-
-const route = useRoute()
-const isAdminRoute = computed(() => route.path.startsWith('/admin'))
 </script>
 
 <style></style>

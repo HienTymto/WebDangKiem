@@ -23,10 +23,11 @@ import Row from 'primevue/row' // optional
 
 // Explicitly import IconsPlugin separately
 import PrimeVue from 'primevue/config'
-
 const app = createApp(App)
+
 app.use(PrimeVue)
 app.use(router)
+app.config.globalProperties.API_URL = 'http://localhost:8081/api'
 app.mount('#app')
 // eslint-disable-next-line vue/no-reserved-component-names
 app.component('Button', Button)

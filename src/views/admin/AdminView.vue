@@ -22,8 +22,30 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import PanelMenu from '@/components/admin/PanelMenu.vue'
+
+export default {
+  name: 'AdminView',
+  components: {
+    PanelMenu
+  },
+  methods: {
+    IsAdminUser(roles) {
+      let isAdmin = false
+      if (roles) {
+        roles.forEach((item) => {
+          if (item === 'ROLE_ADMIN') isAdmin = true
+        })
+      }
+      if (!isAdmin)
+        this.$router.push({ path: '/' })
+    },
+  },
+  mounted() {
+    this.IsAdminUser()
+  }
+}
 </script>
 
 <style></style>

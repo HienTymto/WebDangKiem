@@ -31,14 +31,16 @@ export default {
     PanelMenu
   },
   methods: {
-    IsAdminUser(roles) {
+    IsAdminUser() {
       let isAdmin = false
-      if (roles) {
-        roles.forEach((item) => {
+      let user = JSON.parse(localStorage.getItem('user'))
+
+      if (user.roles) {
+        user.roles.forEach((item) => {
           if (item === 'ROLE_ADMIN') isAdmin = true
         })
       }
-      if (!isAdmin)
+      if (isAdmin == false)
         this.$router.push({ path: '/' })
     },
   },
